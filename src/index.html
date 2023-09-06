@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/css/output.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <title>Hotel Project</title>
+</head>
+
+<body class="bg-grey overflow-x-hidden">
+    
+    <div class="w-full bg-secondary">
+        <nav class="py-6 px-2 lg:px-16 container mx-auto">
+            <div class="flex items-center justify-between w-full">
+                <div class="flex items-center justify-between lg:w-auto w-full">
+                    <div class="text-primary text-3xl font-semibold">HOTEL</div>
+
+                    <div class="flex items-center gap-6">
+                        <div class="lg:hidden items-center gap-4 flex">
+                            <div class="text-primary relative">
+                                <button class="flex items-center gap-1" id="lang_btn">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill="currentColor"
+                                            d="M20 18h-1.44a.61.61 0 0 1-.4-.12a.81.81 0 0 1-.23-.31L17 15h-5l-1 2.54a.77.77 0 0 1-.22.3a.59.59 0 0 1-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a11.62 11.62 0 0 1-.39-1.24q-.09.37-.19.69l-.19.56l-1.58 4.19zm-6.3-1.58a13.43 13.43 0 0 1-2.91-1.41a11.46 11.46 0 0 0 2.81-5.37H12V4H7.31a4 4 0 0 0-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 0 0 5 10.7a17.19 17.19 0 0 1-5 2.1q.56.82.87 1.38a23.28 23.28 0 0 0 5.22-2.51a15.64 15.64 0 0 0 3.56 1.77zM3.63 5.33h4.91a8.11 8.11 0 0 1-2.45 4.45a9.11 9.11 0 0 1-2.46-4.45z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M12 14.975q-.2 0-.375-.062T11.3 14.7l-4.6-4.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-4.6 4.6q-.15.15-.325.213t-.375.062Z" />
+                                    </svg>
+                                </button>
+                                <div 
+                                id="list_lang"
+                                class="absolute bg-light rounded top-10 right-0 w-40 text-center text-dark shadow z-30 hidden">
+                                    <ul class="flex flex-col gap-2 py-2">
+                                        <li class="p-1">
+                                            <a href="#">
+                                                <span class="font-medium">English</span>
+                                                <span class="text-xs font-bold">EN</span>
+                                            </a>
+                                        </li>
+                                        <li class="p-1">
+                                            <a href="">
+                                                <span class="font-medium">Arabic</span>
+                                                <span class="text-xs font-bold">AR</span>
+                                            </a>
+                                        </li>
+                                        <li class="p-1">
+                                            <a href="#">
+                                                <span class="font-medium">Kurdish</span>
+                                                <span class="text-xs font-bold">KR</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="#" class="bg-primary py-2 px-4 rounded text-sm font-semibold lg:block hidden">Sign In</a>
+                        </div>
+                        <button class="lg:hidden text-dark rounded-md focus:outline-none bg-primary p-1"
+                            id="mobile-menu-btn">
+                            <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+
+                </div>
+                <ul class="hidden lg:flex space-x-12">
+                    <li><a href="#" class="text-light font-medium">Home</a></li>
+                    <li><a href="#" class="text-light">Reviews</a></li>
+                    <li><a href="#" class="text-light">Featured</a></li>
+                    <li><a href="#" class="text-light">Contact</a></li>
+                    <li><a href="#" class="text-light">Services</a></li>
+                </ul>
+                <div class="lg:flex items-center gap-4 hidden">
+                    <div class="text-primary relative">
+                        <button class="flex items-center gap-1" id="lang_btn_1">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path fill="currentColor"
+                                    d="M20 18h-1.44a.61.61 0 0 1-.4-.12a.81.81 0 0 1-.23-.31L17 15h-5l-1 2.54a.77.77 0 0 1-.22.3a.59.59 0 0 1-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a11.62 11.62 0 0 1-.39-1.24q-.09.37-.19.69l-.19.56l-1.58 4.19zm-6.3-1.58a13.43 13.43 0 0 1-2.91-1.41a11.46 11.46 0 0 0 2.81-5.37H12V4H7.31a4 4 0 0 0-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 0 0 5 10.7a17.19 17.19 0 0 1-5 2.1q.56.82.87 1.38a23.28 23.28 0 0 0 5.22-2.51a15.64 15.64 0 0 0 3.56 1.77zM3.63 5.33h4.91a8.11 8.11 0 0 1-2.45 4.45a9.11 9.11 0 0 1-2.46-4.45z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M12 14.975q-.2 0-.375-.062T11.3 14.7l-4.6-4.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-4.6 4.6q-.15.15-.325.213t-.375.062Z" />
+                            </svg>
+                        </button>
+                        <div 
+                        id="list_lang_1"
+                        class="absolute bg-light rounded top-10 right-0 w-40 text-center text-dark shadow z-30 hidden">
+                            <ul class="flex flex-col gap-2 py-2">
+                                <li class="p-1">
+                                    <a href="#">
+                                        <span class="font-medium">English</span>
+                                        <span class="text-xs font-bold">EN</span>
+                                    </a>
+                                </li>
+                                <li class="p-1">
+                                    <a href="">
+                                        <span class="font-medium">Arabic</span>
+                                        <span class="text-xs font-bold">AR</span>
+                                    </a>
+                                </li>
+                                <li class="p-1">
+                                    <a href="#">
+                                        <span class="font-medium">Kurdish</span>
+                                        <span class="text-xs font-bold">KR</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#" class="bg-primary py-2 px-4 rounded text-sm font-semibold">Sign In</a>
+                </div>
+            </div>
+            <div class="hidden" id="mobile-menu">
+                <ul class="mt-4 space-y-4">
+                    <li>
+                        <a href="#" class="text-light font-medium">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-light">
+                            Reviews
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-light">
+                            Featured
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-light">
+                            Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-light">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-light">
+                            Sign In
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="bg-filter bg-no-repeat bg-cover bg-center h-screen w-full">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="text-light text-2xl md:text-3xl lg:text-4xl text-center font-semibold md:font-bold px-6 animate__animated animate__fadeInDown animate__fast">
+                <span>
+                    Finding the <br> Dream For
+                </span>
+                <span class="text-primary underline decoration-[#FFE194] decoration-2 md:underline-offset-[16px] underline-offset-[10px]">
+                    Every one
+                </span>
+            </div>
+            <div class="text-grey mt-6 text-center text-sm md:text-base px-2 lg:px-16 animate__animated animate__fadeInUp animate__delay-1s">
+                <span>
+                    Find asheville real estate privacy friendly, the best resources. results & answers always fects
+                    unlimited access best 100% secure types best results explore now
+                </span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-0 px-8 lg:px-0 w-screen lg:container  items-center mx-auto mt-6 md:mt-10 animate__animated animate__fadeInRightBig animate__delay-2s">
+                <div class="col-span-3 md:col-span-1 relative">
+                    <div class="flex items-center gap-4 w-full bg-light md:py-1 px-2 border-0 md:border-r border-r-secondary/10 rounded-r md:rounded-r-none rounded-l">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" d="M19 20v-1.5M5 20v-1.5" />
+                                <path
+                                    d="M2 15c0-.932 0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C3.602 12 4.068 12 5 12h14c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C22 13.602 22 14.068 22 15c0 .932 0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C20.398 18 19.932 18 19 18H5c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C2 16.398 2 15.932 2 15Zm19-3c0-3.771 0-5.657-1.172-6.828C18.657 4 16.771 4 13 4h-2C7.229 4 5.343 4 4.172 5.172C3 6.343 3 8.229 3 12" />
+                                <path
+                                    d="M18.5 12v-1.5c0-1.886 0-2.828-.586-3.414C17.328 6.5 16.386 6.5 14.5 6.5h-5c-1.886 0-2.828 0-3.414.586C5.5 7.672 5.5 8.614 5.5 10.5V12M12 7v5" />
+                            </g>
+                        </svg>
+                        <input 
+                            id="locationInput"
+                            type="text" class="w-full h-[48px] md:h-[52px] focus:border-0 focus:outline-none focus:ring-0 bg-dark/0 text-sm md:text-base"
+                            placeholder="Where are you going ?" value="Duhok">
+                        <button id="clearButton">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5 mr-1" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <ul 
+                    id="list_location"
+                    class="bg-light absolute w-full mt-1 p-2 rounded hidden flex-col gap-1 z-10 shadow md:shadow-none text-sm md:text-base">
+                        <li class="cursor-pointer">Duhok</li>
+                        <li class="cursor-pointer">Arbil</li>
+                        <li class="cursor-pointer">Baghdad</li>
+                        <li class="cursor-pointer">Slemani</li>
+                        <li class="cursor-pointer">Zaxo</li>
+                    </ul>
+                </div>
+                <div class="col-span-3 md:col-span-1 flex items-center gap-4 w-full bg-light md:py-1 px-2 border-0 md:border-r border-r-secondary/10 rounded-r md:rounded-none rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 md:w-7 h-5 md:h-7" viewBox="0 0 24 24">
+                        <g fill="none">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                d="M14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14v-2c0-3.771 0-5.657 1.172-6.828C4.343 4 6.229 4 10 4h4c3.771 0 5.657 0 6.828 1.172C22 6.343 22 8.229 22 12v2c0 3.771 0 5.657-1.172 6.828c-.653.654-1.528.943-2.828 1.07M7 4V2.5M17 4V2.5M21.5 9H10.75M2 9h3.875" />
+                            <path fill="currentColor"
+                                d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0Z" />
+                        </g>
+                    </svg>
+                    <input type="text"
+                        class="dual-datepicker w-full focus:border-0 focus:outline-none focus:ring-0 h-[48px] md:h-[52px] bg-dark/0 text-sm md:text-base"
+                        placeholder="Select start date">
+                </div>
+                <div class="col-span-3 md:col-span-1 flex items-center gap-4 w-full bg-light md:py-1 px-2 border-0 md:border-r border-r-secondary/10 md:rounded-none rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-7 md:h-7" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="6" r="4" />
+                            <path stroke-linecap="round"
+                                d="M19.997 18c.003-.164.003-.331.003-.5c0-2.485-3.582-4.5-8-4.5s-8 2.015-8 4.5S4 22 12 22c2.231 0 3.84-.157 5-.437" />
+                        </g>
+                    </svg>
+                    <div class="relative inline-block text-left w-full">
+                        <input type="text"
+                            class="dropdown-trigger w-full focus:border-0 focus:outline-none focus:ring-0 text-sm md:text-base h-[48px] md:h-[52px] bg-dark/0"
+                            placeholder="2 adults . 0 children . 1 room">
+                        <div
+                            class="dropdown hidden absolute z-10 right-0 mt-4 w-60 md:w-80 lg:w-96 p-4 bg-light border border-dark/5 rounded shadow-lg">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <label for="adults" class="text-sm md:text-base">Adults</label>
+                                    <div class="flex items-center md:space-x-2 border py-1 rounded border-secondary/20">
+                                        <button class="text-secondary px-3 py-1 decrease"
+                                            data-target="adults">-</button>
+                                        <input id="adults" type="number" value="3"
+                                            class="border-0 rounded text-center w-10 md:w-20 text-sm md:text-base">
+                                        <button class="text-secondary px-3 py-1 increase"
+                                            data-target="adults">+</button>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <label for="children" class="text-sm md:text-base">Children</label>
+                                    <div class="flex items-center md:space-x-2 border py-1 rounded border-secondary/20">
+                                        <button class="text-secondary px-3 py-1 decrease"
+                                            data-target="children">-</button>
+                                        <input id="children" type="number" value="0"
+                                            class="border-0 rounded text-center w-10 md:w-20 text-sm md:text-base">
+                                        <button class="text-secondary px-3 py-1 increase"
+                                            data-target="children">+</button>
+                                    </div>
+                                </div>
+                                <div class="grid-cols-2 hidden gap-4 text-sm md:text-base" id="additionalInfo">
+
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <label for="rooms" class="text-sm md:text-base">Rooms</label>
+                                    <div class="flex items-center md:space-x-2 border py-1 rounded border-secondary/20">
+                                        <button class="text-secondary px-3 py-1 decrease" data-target="rooms">-</button>
+                                        <input id="rooms" type="number" value="3"
+                                            class="border-0 rounded w-10 md:w-20 text-center text-sm md:text-base">
+                                        <button class="text-secondary px-3 py-1 increase" data-target="rooms">+</button>
+                                    </div>
+                                </div>
+
+                                <button class="bg-primary text-dark mt-2 p-2 rounded font-medium">Done</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center bg-primary mt-2 lg:mt-0 md:py-1 px-2 md:rounded-l-none rounded-l rounded-r w-full col-span-3 lg:col-span-1">
+                    <button class="h-[48px] md:h-[52px] p-2 w-full md:font-medium">SEARCH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="py-6 px-2 lg:px-16 mt-10">
+        <ul class="flex items-center justify-around flex-wrap gap-4 container mx-auto">
+            <li>
+                <img src="../assets/img/logo/1.png" class="object-cover w-14 md:w-30 h-10 md:h-20" alt="" srcset="">
+            </li>
+            <li>
+                <img src="../assets/img/logo/3.png" class="object-cover w-14 md:w-30 h-10 md:h-20" alt="" srcset="">
+            </li>
+            <li>
+                <img src="../assets/img/logo/4.png" class="w-14 md:w-30 h-10 md:h-20 object-cover" alt="" srcset="">
+            </li>
+            <li>
+                <img src="../assets/img/logo/5.png" class="object-cover w-14 md:w-30 h-10 md:h-20" alt="" srcset="">
+            </li>
+            <li>
+                <img src="../assets/img/logo/6.png" class="object-cover w-14 md:w-30 h-10 md:h-20" alt="" srcset="">
+            </li>
+        </ul>
+
+
+        <div class="mt-24 flex flex-col justify-center items-center">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl font-medium">
+                Featured Rooms
+            </h1>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 bg-light mt-6 md:mt-12 container mx-auto">
+                <div class="flex flex-col justify-center items-center p-2">
+                    <h1 class="text-xl md:text-2xl lg:text-3xl">Suite Room</h1>
+                    <p class="p-1 md:p-4 text-center text-dark/70 text-sm md:text-base">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia Unwind
+                        Bes x $450/NIGHT there live the blind texts.
+                    </p>
+
+                    <div class="flex items-center justify-center gap-2 md:gap-6 ">
+                        <p class="text-[#A18D59] text-sm md:text-base">$450 /NIGHT</p>
+                        <a href="#" class="border-2 border-primary rounded px-2 md:px-6 py-2 text-sm md:text-base">BOOK NOW</a>
+                    </div>
+                </div>
+                <div>
+                    <img class="w-full h-[200px] md:h-[300px] object-cover md:rounded-bl-3xl md:rounded-br-3xl"
+                        src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="" srcset="">
+                </div>
+                <div class="flex flex-col justify-center items-center p-2">
+                    <h1 class="text-xl md:text-2xl lg:text-3xl">Deluxe Room</h1>
+                    <p class="p-1 md:p-4 text-center text-dark/70 text-sm md:text-base">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia Unwind
+                        Bes x $450/NIGHT there live the blind texts.
+                    </p>
+
+                    <div class="flex items-center justify-center gap-2 md:gap-6 ">
+                        <p class="text-[#A18D59] text-sm md:text-base">$450 /NIGHT</p>
+                        <a href="#" class="border-2 border-primary rounded px-2 md:px-6 py-2 text-sm md:text-base">BOOK NOW</a>
+                    </div>
+                </div>
+                <div>
+                    <img class="w-full h-[200px] md:h-[300px] object-cover md:rounded-tr-3xl"
+                        src="https://images.pexels.com/photos/3682238/pexels-photo-3682238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="">
+                </div>
+                <div class="flex flex-col justify-center items-center p-2">
+                    <h1 class="text-xl md:text-2xl lg:text-3xl">Family Room</h1>
+                    <p class="p-1 md:p-4 text-center text-dark/70 text-sm md:text-base">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia Unwind
+                        Bes x $450/NIGHT there live the blind texts.
+                    </p>
+
+                    <div class="flex items-center justify-center gap-2 md:gap-6 ">
+                        <p class="text-[#A18D59] text-sm md:text-base">$450 /NIGHT</p>
+                        <a href="#" class="border-2 border-primary rounded px-2 md:px-6 py-2 text-sm md:text-base">BOOK NOW</a>
+                    </div>
+                </div>
+                <div>
+                    <img class="w-full h-[200px] md:h-[300px] object-cover md:rounded-tl-3xl"
+                        src="https://images.pexels.com/photos/3659683/pexels-photo-3659683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="" srcset="">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mt-24 flex flex-col justify-center items-center">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl font-medium">
+                Our Rooms
+            </h1>
+            <div class="grid lg:grid-cols-3 gap-4 mt-8 md:mt-12 container mx-auto">
+                <div class="flex flex-col bg-light p-1 md:p-3 rounded">
+                    <img src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="" class="rounded h-52 md:h-72 object-cover w-full">
+                    <h1 class="text-lg md:text-xl mt-5 font-medium md:px-1">12,000 USD</h1>
+                    <p class="mt-1 md:mt-2 text-secondary/80 md:px-1 text-sm md:text-base">31, Gedawang Perai St Semaran</p>
+                    <div class="mt-4 md:mt-10">
+                        <hr class="mb-4 border-0 h-[1px] bg-secondary/10">
+                        <div class="flex items-center justify-around">
+                            <div class="flex flex-col gap-1 items-center">
+                                <div class="flex gap-1 md:gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24">
+                                        <g fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path stroke-linecap="round" d="M19 20v-1.5M5 20v-1.5" />
+                                            <path
+                                                d="M2 15c0-.932 0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C3.602 12 4.068 12 5 12h14c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C22 13.602 22 14.068 22 15c0 .932 0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C20.398 18 19.932 18 19 18H5c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C2 16.398 2 15.932 2 15Zm19-3c0-3.771 0-5.657-1.172-6.828C18.657 4 16.771 4 13 4h-2C7.229 4 5.343 4 4.172 5.172C3 6.343 3 8.229 3 12" />
+                                            <path
+                                                d="M18.5 12v-1.5c0-1.886 0-2.828-.586-3.414C17.328 6.5 16.386 6.5 14.5 6.5h-5c-1.886 0-2.828 0-3.414.586C5.5 7.672 5.5 8.614 5.5 10.5V12M12 7v5" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-sm md:text-base">3</span>
+                                </div>
+                                <span class="text-secondary/80 text-xs md:text-sm">Bedrooms</span>
+                            </div>
+                            <div class="flex flex-col gap-1 items-center">
+                                <div class="flex gap-1 md:gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24">
+                                        <g fill="none">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                                d="M12 20.5c.65 0 1.364-.017 2.098-.044c.258-.01.386-.015.607-.037c3.278-.332 6.072-3.234 6.28-6.521c.015-.222.015-.42.015-.815c0-.077 0-.116-.002-.148a1 1 0 0 0-.933-.933c-.033-.002-.07-.002-.148-.002M4.083 12c-.077 0-.115 0-.148.002a1 1 0 0 0-.933.933c-.002.032-.002.07-.002.148c0 .395 0 .593.014.815c.18 2.844 2.296 5.4 4.986 6.252M6 20l-1 2m13-2l1 2M2 12h12m8 0h-4" />
+                                            <path fill="currentColor"
+                                                d="M2.25 13a.75.75 0 0 0 1.5 0h-1.5ZM7.6 3.5l.696-.28l-.696.28Zm.379.947l.328.674l-.328-.674ZM6.362 6.192l.695.283l-.695-.283Zm4.215-1.814l-.295.69l.295-.69ZM6.346 8.742l-.698.275a.75.75 0 0 0 .994.413l-.296-.688Zm5.96-2.567l.297.69a.75.75 0 0 0 .401-.964l-.698.274ZM3.75 13V4.385h-1.5V13h1.5ZM5.385 2.75c.669 0 1.27.407 1.518 1.028l1.393-.557a3.135 3.135 0 0 0-2.91-1.971v1.5ZM3.75 4.385c0-.903.732-1.635 1.635-1.635v-1.5A3.135 3.135 0 0 0 2.25 4.385h1.5Zm3.153-.607l.38.948l1.392-.557l-.379-.948l-1.393.557Zm.14 4.689a2.679 2.679 0 0 1 .014-1.992l-1.39-.565a4.179 4.179 0 0 0-.02 3.107l1.396-.55Zm4.967-2.98L6.049 8.053l.593 1.377l5.96-2.566l-.592-1.377Zm-1.728-.42c.622.266 1.085.77 1.327 1.383l1.395-.55a3.973 3.973 0 0 0-2.132-2.212l-.59 1.38ZM7.057 6.476a2.565 2.565 0 0 1 1.25-1.354l-.656-1.348A4.065 4.065 0 0 0 5.667 5.91l1.39.565Zm1.25-1.354a2.361 2.361 0 0 1 1.975-.053l.59-1.38a3.861 3.861 0 0 0-3.221.085l.656 1.348Z" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-sm md:text-base">3</span>
+                                </div>
+                                <span class="text-secondary/80 text-xs md:text-sm">Bathrooms</span>
+                            </div>
+                            <div class="flex flex-col gap-1 items-center">
+                                <div class="flex gap-1 md:gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24">
+                                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+                                            <path
+                                                d="M6 9.997c.014-1.706.11-2.647.73-3.267c.62-.62 1.56-.716 3.267-.73M6 14c.014 1.707.11 2.648.73 3.268c.62.62 1.56.716 3.267.73m8.001-8.001c-.015-1.706-.11-2.647-.73-3.267c-.62-.62-1.561-.716-3.268-.73m3.998 8c-.015 1.707-.11 2.648-.73 3.268c-.62.62-1.561.716-3.268.73" />
+                                            <path
+                                                d="M22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-sm md:text-base">280m</span>
+                                </div>
+                                <span class="text-secondary/80 text-xs md:text-sm">Living Area</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col bg-light p-1 md:p-3 rounded">
+                    <img src="https://images.pexels.com/photos/6480198/pexels-photo-6480198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="" class="rounded h-52 md:h-72 object-cover w-full">
+                    <h1 class="text-lg md:text-xl mt-5 font-medium md:px-1">10,000 USD</h1>
+                    <p class="mt-1 md:mt-2 text-secondary/80 md:px-1 text-sm md:text-base">40, Gedawang Perai St Semaran</p>
+                    <div class="mt-4 md:mt-10">
+                        <hr class="mb-4 border-0 h-[1px] bg-secondary/10">
+                        <div class="flex items-center justify-around">
+                            <div class="flex flex-col gap-1 items-center">
+                                <div class="flex gap-1 md:gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24">
+                                        <g fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path stroke-linecap="round" d="M19 20v-1.5M5 20v-1.5" />
+                                            <path
+                                                d="M2 15c0-.932 0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C3.602 12 4.068 12 5 12h14c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C22 13.602 22 14.068 22 15c0 .932 0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C20.398 18 19.932 18 19 18H5c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C2 16.398 2 15.932 2 15Zm19-3c0-3.771 0-5.657-1.172-6.828C18.657 4 16.771 4 13 4h-2C7.229 4 5.343 4 4.172 5.172C3 6.343 3 8.229 3 12" />
+                                            <path
+                                                d="M18.5 12v-1.5c0-1.886 0-2.828-.586-3.414C17.328 6.5 16.386 6.5 14.5 6.5h-5c-1.886 0-2.828 0-3.414.586C5.5 7.672 5.5 8.614 5.5 10.5V12M12 7v5" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-sm md:text-base">4</span>
+                                </div>
+                                <span class="text-secondary/80 text-xs md:text-sm">Bedrooms</span>
+                            </div>
+                            <div class="flex flex-col gap-1 items-center">
+                                <div class="flex gap-1 md:gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24">
+                                        <g fill="none">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                                d="M12 20.5c.65 0 1.364-.017 2.098-.044c.258-.01.386-.015.607-.037c3.278-.332 6.072-3.234 6.28-6.521c.015-.222.015-.42.015-.815c0-.077 0-.116-.002-.148a1 1 0 0 0-.933-.933c-.033-.002-.07-.002-.148-.002M4.083 12c-.077 0-.115 0-.148.002a1 1 0 0 0-.933.933c-.002.032-.002.07-.002.148c0 .395 0 .593.014.815c.18 2.844 2.296 5.4 4.986 6.252M6 20l-1 2m13-2l1 2M2 12h12m8 0h-4" />
+                                            <path fill="currentColor"
+                                                d="M2.25 13a.75.75 0 0 0 1.5 0h-1.5ZM7.6 3.5l.696-.28l-.696.28Zm.379.947l.328.674l-.328-.674ZM6.362 6.192l.695.283l-.695-.283Zm4.215-1.814l-.295.69l.295-.69ZM6.346 8.742l-.698.275a.75.75 0 0 0 .994.413l-.296-.688Zm5.96-2.567l.297.69a.75.75 0 0 0 .401-.964l-.698.274ZM3.75 13V4.385h-1.5V13h1.5ZM5.385 2.75c.669 0 1.27.407 1.518 1.028l1.393-.557a3.135 3.135 0 0 0-2.91-1.971v1.5ZM3.75 4.385c0-.903.732-1.635 1.635-1.635v-1.5A3.135 3.135 0 0 0 2.25 4.385h1.5Zm3.153-.607l.38.948l1.392-.557l-.379-.948l-1.393.557Zm.14 4.689a2.679 2.679 0 0 1 .014-1.992l-1.39-.565a4.179 4.179 0 0 0-.02 3.107l1.396-.55Zm4.967-2.98L6.049 8.053l.593 1.377l5.96-2.566l-.592-1.377Zm-1.728-.42c.622.266 1.085.77 1.327 1.383l1.395-.55a3.973 3.973 0 0 0-2.132-2.212l-.59 1.38ZM7.057 6.476a2.565 2.565 0 0 1 1.25-1.354l-.656-1.348A4.065 4.065 0 0 0 5.667 5.91l1.39.565Zm1.25-1.354a2.361 2.361 0 0 1 1.975-.053l.59-1.38a3.861 3.861 0 0 0-3.221.085l.656 1.348Z" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-sm md:text-base">2</span>
+                                </div>
+                                <span class="text-secondary/80 text-xs md:text-sm">Bathrooms</span>
+                            </div>
+                            <div class="flex flex-col gap-1 items-center">
+                                <div class="flex gap-1 md:gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24">
+                                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+                                            <path
+                                                d="M6 9.997c.014-1.706.11-2.647.73-3.267c.62-.62 1.56-.716 3.267-.73M6 14c.014 1.707.11 2.648.73 3.268c.62.62 1.56.716 3.267.73m8.001-8.001c-.015-1.706-.11-2.647-.73-3.267c-.62-.62-1.561-.716-3.268-.73m3.998 8c-.015 1.707-.11 2.648-.73 3.268c-.62.62-1.561.716-3.268.73" />
+                                            <path
+                                                d="M22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-sm md:text-base">300m</span>
+                                </div>
+                                <span class="text-secondary/80 text-xs md:text-sm">Living Area</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col bg-light p-1 md:p-3 rounded">
+                    <img src="https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="" class="rounded h-52 md:h-72 object-cover w-full">
+                    <h1 class="text-lg md:text-xl mt-5 font-medium md:px-1">20,000 USD</h1>
+                    <p class="mt-1 md:mt-2 text-secondary/80 md:px-1 text-sm md:text-base">5, Gedawang Perai St Semaran</p>
+                    <div class="mt-4 md:mt-10">
+                        <hr class="mb-4 border-0 h-[1px] bg-secondary/10">
+                        <div class="flex items-center justify-around">
+                            <div class="flex flex-col gap-1 items-center">
+                                <div class="flex gap-1 md:gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24">
+                                        <g fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path stroke-linecap="round" d="M19 20v-1.5M5 20v-1.5" />
+                                            <path
+                                                d="M2 15c0-.932 0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C3.602 12 4.068 12 5 12h14c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C22 13.602 22 14.068 22 15c0 .932 0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C20.398 18 19.932 18 19 18H5c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C2 16.398 2 15.932 2 15Zm19-3c0-3.771 0-5.657-1.172-6.828C18.657 4 16.771 4 13 4h-2C7.229 4 5.343 4 4.172 5.172C3 6.343 3 8.229 3 12" />
+                                            <path
+                                                d="M18.5 12v-1.5c0-1.886 0-2.828-.586-3.414C17.328 6.5 16.386 6.5 14.5 6.5h-5c-1.886 0-2.828 0-3.414.586C5.5 7.672 5.5 8.614 5.5 10.5V12M12 7v5" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-sm md:text-base">5</span>
+                                </div>
+                                <span class="text-secondary/80 text-xs md:text-sm">Bedrooms</span>
+                            </div>
+                            <div class="flex flex-col gap-1 items-center">
+                                <div class="flex gap-1 md:gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24">
+                                        <g fill="none">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                                d="M12 20.5c.65 0 1.364-.017 2.098-.044c.258-.01.386-.015.607-.037c3.278-.332 6.072-3.234 6.28-6.521c.015-.222.015-.42.015-.815c0-.077 0-.116-.002-.148a1 1 0 0 0-.933-.933c-.033-.002-.07-.002-.148-.002M4.083 12c-.077 0-.115 0-.148.002a1 1 0 0 0-.933.933c-.002.032-.002.07-.002.148c0 .395 0 .593.014.815c.18 2.844 2.296 5.4 4.986 6.252M6 20l-1 2m13-2l1 2M2 12h12m8 0h-4" />
+                                            <path fill="currentColor"
+                                                d="M2.25 13a.75.75 0 0 0 1.5 0h-1.5ZM7.6 3.5l.696-.28l-.696.28Zm.379.947l.328.674l-.328-.674ZM6.362 6.192l.695.283l-.695-.283Zm4.215-1.814l-.295.69l.295-.69ZM6.346 8.742l-.698.275a.75.75 0 0 0 .994.413l-.296-.688Zm5.96-2.567l.297.69a.75.75 0 0 0 .401-.964l-.698.274ZM3.75 13V4.385h-1.5V13h1.5ZM5.385 2.75c.669 0 1.27.407 1.518 1.028l1.393-.557a3.135 3.135 0 0 0-2.91-1.971v1.5ZM3.75 4.385c0-.903.732-1.635 1.635-1.635v-1.5A3.135 3.135 0 0 0 2.25 4.385h1.5Zm3.153-.607l.38.948l1.392-.557l-.379-.948l-1.393.557Zm.14 4.689a2.679 2.679 0 0 1 .014-1.992l-1.39-.565a4.179 4.179 0 0 0-.02 3.107l1.396-.55Zm4.967-2.98L6.049 8.053l.593 1.377l5.96-2.566l-.592-1.377Zm-1.728-.42c.622.266 1.085.77 1.327 1.383l1.395-.55a3.973 3.973 0 0 0-2.132-2.212l-.59 1.38ZM7.057 6.476a2.565 2.565 0 0 1 1.25-1.354l-.656-1.348A4.065 4.065 0 0 0 5.667 5.91l1.39.565Zm1.25-1.354a2.361 2.361 0 0 1 1.975-.053l.59-1.38a3.861 3.861 0 0 0-3.221.085l.656 1.348Z" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-sm md:text-base">2</span>
+                                </div>
+                                <span class="text-secondary/80 text-xs md:text-sm">Bathrooms</span>
+                            </div>
+                            <div class="flex flex-col gap-1 items-center">
+                                <div class="flex gap-1 md:gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24">
+                                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+                                            <path
+                                                d="M6 9.997c.014-1.706.11-2.647.73-3.267c.62-.62 1.56-.716 3.267-.73M6 14c.014 1.707.11 2.648.73 3.268c.62.62 1.56.716 3.267.73m8.001-8.001c-.015-1.706-.11-2.647-.73-3.267c-.62-.62-1.561-.716-3.268-.73m3.998 8c-.015 1.707-.11 2.648-.73 3.268c-.62.62-1.561.716-3.268.73" />
+                                            <path
+                                                d="M22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-sm md:text-base">300m</span>
+                                </div>
+                                <span class="text-secondary/80 text-xs md:text-sm">Living Area</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bg-title my-20 h-[300px] w-full flex items-center justify-center">
+        <div class="flex justify-center items-center flex-col md:flex-row gap-0 md:gap-14 lg::gap-28">
+            <div class="flex flex-col">
+                <span class="text-primary text-sm md:text-base">FIND BEST HOTEL FOR LEAVING</span>
+                <span class="text-xl md:text-2xl lg:text-3xl text-light font-medium">Find the Best Hotel in Your <br> Next Vacation</span>
+            </div>
+            <a href="#"
+                class="bg-primary font-medium text-base md:text-lg lg:text-xl h-[48px] md:h-[60px] px-4 md:px-8 flex items-center justify-center rounded w-full md:mt-0 mt-4 md:w-auto">BOOK
+                NOW</a>
+        </div>
+    </div>
+
+    <div class="py-6 px-2 lg:px-16 mt-4 md:mt-10">
+        <h1 class="text-2xl md:text-3xl lg:text-4xl font-medium text-center">
+            Happy Guests
+        </h1>
+        <div class="grid md:grid-cols-3 gap-4 mt-8 md:mt-12 container mx-auto">
+            <div class="bg-light px-4 md:pb-12 pb-8 pt-6 flex flex-col">
+                <div class="flex gap-4 items-center">
+                    <div class="relative">
+                        <img class="w-10 h-10 md:w-16 md:h-16 rounded-full object-cover"
+                            src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="">
+                        <div class="bg-primary absolute bottom-0 right-0 p-1 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2 h-2 md:w-4 md:h-4 text-light" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                    d="M8 10.5h8M8 14h5.5M17 3.338A9.954 9.954 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.591l2.226-.595a1.634 1.634 0 0 1 1.149.133A9.958 9.958 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5" />
+                                </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-base lg:text-xl font-medium text-secondary">Rayan Ramadhan</span>
+                        <span class="text-xs md:text-sm text-primary">Frontend Developer</span>
+                    </div>
+                </div>
+
+                <span class="mt-4 md:mt-8 text-secondary/80 md:text-base text-sm">
+                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                </span>
+            </div>
+            <div class="bg-light px-4 md:pb-12 pb-8 pt-6 flex flex-col">
+                <div class="flex gap-4 items-center">
+                    <div class="relative">
+                        <img class="w-10 h-10 md:w-16 md:h-16 rounded-full object-cover"
+                            src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="">
+                        <div class="bg-primary absolute bottom-0 right-0 p-1 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2 h-2 md:w-4 md:h-4 text-light" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                    d="M8 10.5h8M8 14h5.5M17 3.338A9.954 9.954 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.591l2.226-.595a1.634 1.634 0 0 1 1.149.133A9.958 9.958 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5" />
+                                </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-base lg:text-xl font-medium text-secondary">Dlbrin Azad</span>
+                        <span class="text-xs md:text-sm text-primary">Backend Developer</span>
+                    </div>
+                </div>
+
+                <span class="mt-4 md:mt-8 text-secondary/80 md:text-base text-sm">
+                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                </span>
+            </div>
+            <div class="bg-light px-4 md:pb-12 pb-8 pt-6 flex flex-col">
+                <div class="flex gap-4 items-center">
+                    <div class="relative">
+                        <img class="w-10 h-10 md:w-16 md:h-16 rounded-full object-cover"
+                            src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="">
+                        <div class="bg-primary absolute bottom-0 right-0 p-1 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2 h-2 md:w-4 md:h-4 text-light" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                    d="M8 10.5h8M8 14h5.5M17 3.338A9.954 9.954 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.591l2.226-.595a1.634 1.634 0 0 1 1.149.133A9.958 9.958 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5" />
+                                </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-base lg:text-xl font-medium text-secondary">Rayan Ramadhan</span>
+                        <span class="text-xs md:text-sm text-primary">Guest</span>
+                    </div>
+                </div>
+
+                <span class="mt-4 md:mt-8 text-secondary/80 md:text-base text-sm">
+                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="w-full bg-secondary text-light px-4 md:px-8 lg:px-10 py-8 md:py-12 lg:py-16 mt-24">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="mr-10">
+                    <h6 class="text-xl md:text-2xl text-primary font-semibold mb-4">
+                        Maraian
+                    </h6>
+                    <span class="text-sm md:text-base">
+                        A small river named Duden flows by their place and supplies it with the necessary regelialia. It
+                        is a paradisematic country
+                    </span>
+                </div>
+                <div class="w-full">
+                    <h6 class="text-lg md:text-xl font-medium mb-4">
+                        Quick Links
+                    </h6>
+                    <ul class="list-none p-0 m-0 text-sm md:text-base">
+                        <li class="mb-2">
+                            <a href="#" class=" hover:text-primary">About Mariana</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class=" hover:text-primary">Our Best Rooms</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class=" hover:text-primary">Our Photo Gellary</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class=" hover:text-primary">Pool Service</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full">
+                    <h6 class="text-lg md:text-xl font-medium mb-4">
+                        Reservations
+                    </h6>
+                    <ul class="list-none p-0 m-0 text-sm md:text-base">
+                        <li class="mb-2 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:w-6 md:h-6 w-5 h-5" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="m15.1 15.027l.545.517l-.544-.517Zm.456-.48l-.544-.516l.544.517Zm2.417-.335l-.374.65l.374-.65Zm1.91 1.1l-.374.65l.374-.65Zm.539 3.446l.543.517l-.543-.517Zm-1.42 1.496l-.545-.517l.544.517Zm-1.326.71l.074.745l-.074-.746Zm-9.86-4.489l.543-.516l-.544.516Zm-4.064-9.55a.75.75 0 1 0-1.498.081l1.498-.08Zm5.439 1.88l.544.517l-.544-.517Zm.287-.302l.543.517l-.543-.517Zm.156-2.81l.613-.433l-.613.433ZM8.374 3.91l-.613.433l.612-.433Zm-3.656-.818a.75.75 0 0 0 1.087 1.033L4.718 3.092Zm6.345 9.964l.544-.517l-.544.517Zm-.399 6.756a.75.75 0 1 0 .798-1.27l-.798 1.27Zm4.449.246a.75.75 0 0 0-.307 1.469l.307-1.469Zm.532-4.514l.455-.48l-1.088-1.033l-.455.48l1.088 1.033Zm1.954-.682l1.91 1.1l.748-1.3l-1.91-1.1l-.748 1.3Zm2.279 3.38l-1.42 1.495l1.087 1.034l1.42-1.496l-1.087-1.033ZM8.359 15.959c-3.876-4.081-4.526-7.523-4.607-9.033l-1.498.08c.1 1.85.884 5.634 5.018 9.986l1.087-1.033Zm1.376-6.637l.286-.302l-1.087-1.033l-.287.302l1.088 1.033Zm.512-4.062L8.986 3.477l-1.225.866l1.26 1.783l1.226-.866ZM9.19 8.805a38.223 38.223 0 0 0-.545-.515l-.002.002l-.003.003a.674.674 0 0 0-.05.058a1.592 1.592 0 0 0-.23.427c-.098.275-.15.639-.084 1.093c.13.892.715 2.091 2.242 3.7l1.088-1.034c-1.428-1.503-1.78-2.428-1.846-2.884c-.032-.22 0-.335.013-.372l.008-.019a.253.253 0 0 1-.028.037a.647.647 0 0 1-.018.02l-.545-.516Zm1.328 4.767c1.523 1.604 2.673 2.234 3.55 2.377c.451.073.816.014 1.092-.095a1.52 1.52 0 0 0 .421-.25l.036-.034l.014-.014a.383.383 0 0 0 .007-.006l.003-.003l.001-.002s.002-.001-.542-.518c-.544-.516-.543-.517-.543-.518l.002-.001l.002-.003l.006-.005a.811.811 0 0 1 .047-.042c.009-.006.008-.004-.005.001c-.02.008-.11.04-.3.009c-.402-.066-1.27-.42-2.703-1.929l-1.088 1.033ZM8.986 3.477C7.972 2.043 5.944 1.8 4.718 3.092l1.087 1.033c.523-.55 1.444-.507 1.956.218l1.225-.866Zm9.471 16.26c-.279.294-.57.452-.854.48l.147 1.492c.747-.073 1.352-.472 1.795-.939l-1.088-1.032ZM10.021 9.02c.968-1.019 1.036-2.613.226-3.76l-1.225.866c.422.597.357 1.392-.088 1.86L10.02 9.02Zm9.488 6.942c.821.473.982 1.635.369 2.28l1.087 1.033c1.305-1.374.925-3.673-.707-4.613l-.749 1.3Zm-3.409-.898c.385-.406.986-.497 1.499-.202l.748-1.3c-1.099-.632-2.46-.45-3.335.47l1.088 1.032Zm-4.638 3.478c-.983-.618-2.03-1.454-3.103-2.583l-1.087 1.033c1.154 1.215 2.297 2.132 3.392 2.82l.798-1.27Zm6.14 1.675a8.269 8.269 0 0 1-2.489-.159l-.307 1.469a9.768 9.768 0 0 0 2.944.182l-.147-1.492Z" />
+                            </svg>
+                            <span>Tel: 345 5667 889</span>
+                        </li>
+                        <li class="mb-2 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:w-6 md:h-6 w-5 h-5" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" d="m15 19l-6-7l1.5-1.75M15 5l-2 2.333" /></svg>
+                            <span>Skype: Marianabooking</span>
+                        </li>
+                        <li class="mb-2 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:w-6 md:h-6 w-5 h-5" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                                    d="m10 5.049l.367-.343c2.432-2.275 6.376-2.275 8.809 0c2.432 2.274 2.432 5.961 0 8.235L16.974 15M14 18.928l-.366.35c-2.422 2.316-6.38 2.286-8.802-.03c-2.398-2.293-2.456-6.033-.091-8.358l.905-.89m.941-7L7.5 5.205m-3.998.882L9.05 8.795" />
+                            </svg>
+                            <span>reservations@hotelriven.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full">
+                    <h6 class="text-lg md:text-xl font-medium  mb-4">
+                        Our Location
+                    </h6>
+                    <div class=" flex flex-col text-sm md:text-base">
+                        <div class="flex gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:w-6 md:h-6 w-5 h-5" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+                                    <path d="M12.5 7.041A3 3 0 1 0 14.959 9.5" />
+                                    <path
+                                        d="M5 15.216c-.647-1.654-1-3.415-1-5.073C4 5.646 7.582 2 12 2s8 3.646 8 8.143c0 4.462-2.553 9.67-6.537 11.531a3.45 3.45 0 0 1-2.926 0C9.265 21.08 8.138 20.144 7.194 19" />
+                                </g>
+                            </svg>
+                            <span>
+                                198 West 21th Street, <br> Suite 721 New York NY 10016
+                            </span>
+                        </div>
+
+                        <a href="#" class="flex items-center w-fit p-2 gap-3 rounded text-secondary mt-6 bg-primary">
+                            <span class="font-medium">Email Address</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:w-6 md:h-6 w-5 h-5" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+                                    <path
+                                        d="M2 12c0 4.714 0 7.071 1.464 8.535C4.93 22 7.286 22 12 22c4.714 0 7.071 0 8.535-1.465C22 19.072 22 16.714 22 12s0-7.071-1.465-8.536C19.072 2 16.714 2 12 2S4.929 2 3.464 3.464c-.973.974-1.3 2.343-1.409 4.536" />
+                                    <path
+                                        d="m14.52 14.5l-1.097 2.862c-.319.83-1.483.857-1.731.04l-1.057-3.477a.836.836 0 0 0-.56-.56l-3.477-1.057c-.817-.248-.79-1.412.04-1.73l9.166-3.513a.863.863 0 0 1 1.13 1.131l-.966 2.524" />
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-10">
+
+            <div class="flex flex-col justify-center text-center">
+
+                <ul class="flex justify-center items-center gap-3">
+                    <li class="bg-light text-[#000] hover:bg-primary duration-300 transition-all p-1 rounded">
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:w-7 md:h-7 w-5 h-5" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6Zm0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10Zm6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0ZM12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.886 2.886 0 0 0-1.08.703a2.89 2.89 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.91 2.91 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.912 2.912 0 0 0-.703-1.08a2.884 2.884 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4Zm0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122c0 2.717-.01 3.056-.06 4.122c-.05 1.065-.218 1.79-.465 2.428a4.884 4.884 0 0 1-1.153 1.772a4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06c-2.717 0-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.89 4.89 0 0 1-1.772-1.153a4.905 4.905 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428c-.048-1.066-.06-1.405-.06-4.122c0-2.717.01-3.056.06-4.122c.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772a4.897 4.897 0 0 1 1.772-1.153c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2Z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="bg-light text-[#000] hover:bg-primary duration-300 transition-all p-1 rounded">
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:w-7 md:h-7 w-5 h-5" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5Z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="bg-light text-[#000] hover:bg-primary duration-300 transition-all p-1 rounded">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:w-7 md:h-7 w-5 h-5" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M22.212 5.656a8.384 8.384 0 0 1-2.401.658A4.195 4.195 0 0 0 21.649 4c-.82.488-1.719.83-2.655 1.015a4.182 4.182 0 0 0-7.126 3.814a11.874 11.874 0 0 1-8.621-4.37a4.168 4.168 0 0 0-.566 2.103c0 1.45.739 2.731 1.86 3.481a4.169 4.169 0 0 1-1.894-.523v.051a4.185 4.185 0 0 0 3.355 4.102a4.205 4.205 0 0 1-1.89.072A4.185 4.185 0 0 0 8.02 16.65a8.394 8.394 0 0 1-6.192 1.732a11.831 11.831 0 0 0 6.41 1.88c7.694 0 11.9-6.373 11.9-11.9c0-.18-.004-.362-.012-.541a8.497 8.497 0 0 0 2.086-2.164Z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="bg-light text-[#000] hover:bg-primary duration-300 transition-all p-1 rounded">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:w-7 md:h-7 w-5 h-5" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M7.443 5.35c.639 0 1.23.05 1.77.198c.541.099.984.297 1.377.544c.394.248.689.594.885 1.039c.197.445.296.99.296 1.583c0 .693-.148 1.286-.492 1.731c-.295.446-.787.841-1.377 1.138c.836.248 1.475.693 1.869 1.287c.393.593.639 1.335.639 2.176c0 .693-.148 1.286-.394 1.781c-.245.495-.639.94-1.082 1.237a5.08 5.08 0 0 1-1.573.692c-.59.149-1.18.248-1.77.248H1V5.35h6.443Zm-.394 5.54c.541 0 .984-.148 1.328-.395c.344-.247.492-.693.492-1.237c0-.297-.05-.593-.148-.791c-.098-.198-.246-.347-.442-.495c-.197-.099-.394-.198-.64-.247c-.246-.05-.491-.05-.787-.05H4v3.216h3.05Zm.148 5.838c.295 0 .59-.05.836-.099c.246-.05.492-.148.688-.297a1.76 1.76 0 0 0 .492-.544c.098-.247.197-.544.197-.89c0-.693-.197-1.188-.59-1.534c-.394-.297-.935-.445-1.574-.445H4v3.81h3.197Zm9.492-.05c.393.396.983.594 1.77.594c.541 0 1.033-.148 1.426-.395c.394-.297.64-.594.738-.89h2.41c-.394 1.186-.984 2.027-1.77 2.572c-.788.494-1.722.791-2.853.791a5.751 5.751 0 0 1-2.115-.396a3.928 3.928 0 0 1-1.574-1.088a3.93 3.93 0 0 1-.983-1.633c-.246-.643-.345-1.335-.345-2.127c0-.742.099-1.434.345-2.078a5.34 5.34 0 0 1 1.033-1.681a4.985 4.985 0 0 1 1.573-1.089a5.49 5.49 0 0 1 2.066-.396c.836 0 1.574.149 2.213.495c.64.346 1.131.742 1.524 1.336c.394.544.69 1.187.886 1.88c.098.692.147 1.385.098 2.176H16c0 .792.295 1.534.689 1.93Zm3.098-5.194c-.344-.346-.885-.544-1.525-.544c-.442 0-.787.1-1.082.248c-.295.148-.491.346-.688.544a1.323 1.323 0 0 0-.345.692c-.049.248-.098.446-.098.643h4.426c-.098-.742-.344-1.236-.688-1.583ZM15.459 6.29h5.508v1.336H15.46V6.29Z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <div class="flex justify-center gap-2 mt-4 md:mt-6 text-sm md:text-base">
+                    <span>Copyright @2023 All rights reserved This template is made by <a href="#" class="text-primary font-medium">Colorlib</a></span>
+                    
+                </div>
+            </div>
+
+    </footer>
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>
+    const adultsInput = document.getElementById('adults');
+    const childrenInput = document.getElementById('children');
+    const roomsInput = document.getElementById('rooms');
+    const dropdownTrigger = document.querySelector('.dropdown-trigger');
+  
+    function updateDropdownInput() {
+      const adults = adultsInput.value;
+      const children = childrenInput.value;
+      const rooms = roomsInput.value;
+      dropdownTrigger.value = `${adults} adults . ${children} children . ${rooms} rooms`;
+      var childrenValue = parseInt($("#children").val());
+        if (childrenValue > 0) {
+            $("#additionalInfo").removeClass("hidden").addClass("grid");
+            $("#additionalInfo").empty();
+            for (var i = 1; i <= childrenValue; i++) {
+                var selectElement = $("<select>").addClass("w-full outline-none border border-dark/10 rounded px-4 py-2");
+                    var option_first = $("<option>").text("Age needed");
+                        selectElement.append(option_first);
+                        for (var x = 0; x <= 17; x++) {
+                            var option = $("<option>").attr("value", x + " years old").text(x + " years old");
+                                selectElement.append(option);
+                            }
+                    $("#additionalInfo").append(selectElement);
+            }
+            $("#additionalInfo").append(selectElement);
+        } else {
+            $("#additionalInfo").addClass("hidden").removeClass("flex");
+        }
+    }
+  
+    const increaseButtons = document.querySelectorAll('.increase');
+    increaseButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-target');
+        const inputElement = document.getElementById(target);
+        inputElement.value = parseInt(inputElement.value) + 1;
+        updateDropdownInput();
+      });
+    });
+  
+    const decreaseButtons = document.querySelectorAll('.decrease');
+    decreaseButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-target');
+        const inputElement = document.getElementById(target);
+        if (parseInt(inputElement.value) > 0) {
+          inputElement.value = parseInt(inputElement.value) - 1;
+          updateDropdownInput();
+        }
+      });
+    });
+  
+    childrenInput.addEventListener('input', () => {
+      const additionalInfo = document.getElementById('additionalInfo');
+      if (parseInt(childrenInput.value) > 0) {
+        additionalInfo.classList.remove('hidden');
+      } else {
+        additionalInfo.classList.add('hidden');
+      }
+    });
+  
+    updateDropdownInput();
+
+    $(document).ready(function() {
+
+        $("#lang_btn").on('click', function() {
+            $("#list_lang").toggleClass("hidden");
+        });
+        $("#lang_btn_1").on('click', function() {
+            $("#list_lang_1").toggleClass("hidden");
+        });
+
+
+        const locationInput = $("#locationInput");
+        const clearButton = $("#clearButton");
+
+        $('#list_location li').on('click', function() {
+            var selectedLocation = $(this).text();
+            $('#locationInput').val(selectedLocation);
+            $('#list_location').addClass("hidden");
+            $('#list_location').removeClass("flex");
+            checkClearButtonVisibility();
+        });
+
+        locationInput.focus(function () {
+            $('#list_location').removeClass("hidden");
+            $('#list_location').addClass("flex");
+        });
+
+        checkClearButtonVisibility();
+
+        locationInput.on("input", function () {
+            checkClearButtonVisibility();
+        });
+
+        clearButton.click(function () {
+            locationInput.val(""); 
+            checkClearButtonVisibility();
+        });
+
+        function checkClearButtonVisibility() {
+            const inputValue = locationInput.val();
+            if (inputValue.length > 0) {
+                clearButton.removeClass("invisible").addClass("visible");
+            } else {
+                clearButton.removeClass("visible").addClass("invisible");
+            }
+        }
+    });
+  </script>
+  
+</body>
+
+</html>
